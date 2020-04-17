@@ -17,6 +17,20 @@ module.exports = {
         use: {
           loader: 'babel-loader',
         }
+      },
+      {
+        test: /\.css$/,
+        exclude: /node_modules/,
+        use: [
+          { loader: 'style-loader'}, //Ler o css e injetar dentro do HTML
+          { loader: 'css-loader'}, //Ler o css, interpretar as importações
+        ]
+      },
+      {
+        test: /.*\.(gif|png|jpe?g)$/i, //Leitura de arquivos gif, png e jpe ou jpeg o i no final transforma case insensitive maius min
+        use: {
+          loader: 'file-loader',
+        }
       }
     ]
   },
